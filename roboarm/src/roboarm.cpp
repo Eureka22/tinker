@@ -32,12 +32,12 @@ void orderCallback(const geometry_msgs::Twist::ConstPtr& msg)
     unsigned char *order2 = new unsigned char[10];
     order1[0] = 0xff;
     order1[1] = 0xff;
-    order1[2] = 0xfe;//id
+    order1[2] = 0x01;//id
     order1[3] = 0x05;
     order1[4] = 0x03;
     order1[5] = 0x1E;
-    order1[6] = 0x3ff*150*msg->linear.x/300;
-    order1[7] = (0x3ff*150*msg->linear.x/300)/256;
+    order1[6] = 0x3ff*200*msg->linear.x/300;
+    order1[7] = (0x3ff*200*msg->linear.x/300)/256;
     order1[8] = order1[2]+order1[3]+order1[4]+order1[5]+order1[6]+order1[7];
     order1[8] = ~order1[8];
     order2[0] = 0xff;
